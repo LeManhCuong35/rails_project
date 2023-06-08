@@ -1,0 +1,16 @@
+<div class="content">
+  <h1>
+    <%= t".welcome" %>
+  </h1>
+  <h2>
+    <%= t ".slogan" %>
+    <%= link_to "http://www.w3.org" do %>
+      <%= t ".rails" %>
+    <% end %> .
+  </h2>
+   <%= link_to new_user_path, class: "btn btn-lg btn-primary" do %>
+    <%= t ".sign_up" %>
+   <% end %>
+</div>
+<%= link_to image_tag("dlph.jpg", alt: "Rails logo", width: "200px", class:"image"),
+  Settings.welcome.image %>

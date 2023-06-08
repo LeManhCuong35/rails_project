@@ -1,0 +1,31 @@
+<footer class="footer">
+   <small>
+      The
+      <%= link_to "https://www.railstutorial.org/" do %>
+         <%= t "welcome.index.welcome" %>
+      <% end %>
+      by
+      <%= link_to "https://www.railstutorial.org/" do %>
+         <%= t "welcome.index.author" %>
+      <% end %>
+   </small>
+   <nav>
+      <ul>
+         <li>
+            <%= link_to "/static_pages/about" do %>
+               <%= t "layouts.header.about" %>
+            <% end %>
+         </li>
+         <li>
+            <%= link_to "/static_pages/home" do %>
+               <%= t "layouts.header.home" %>
+            <% end %>
+         </li>
+         <li>
+            <%= link_to "https://carousell.sg" do %>
+               <%= t ".news" %>
+            <% end %>
+         </li>
+      </ul>
+   </nav>
+</footer>

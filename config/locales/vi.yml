@@ -1,0 +1,52 @@
+# config/locales/vi.yml
+vi:
+  articles:
+    index:
+      Articles: Dang cho duyet
+
+  welcome:
+    index:
+      welcome: Chao mung ban den voi binh nguyen vo tan
+      sign_up: Dang ky tai khoan
+      rails: Ruby on Rails Tutorial
+      author: Ha Duy Kien
+      slogan: Day la trang chu cua
+      title: Sample App
+
+  static_pages:
+    about:
+      find_me: Tim toi theo duong dan sau
+      title: Day la trang Gioi Thieu
+    home:
+      title: Day la Trang Chu
+
+  layouts:
+    header:
+      home: Trang Chu
+      about: Gioi thieu ve chung toi
+      log_in: Dang nhap
+    footer:
+      news: Tin tuc
+
+  users:
+    new:
+      user: Dang ky nguoi dung moi
+    edit:
+     show: Xem chi tiet
+     edit: Cap nhat thong tin
+     destroy: Xoa
+     add: Them moi
+
+  activerecord:
+    models:
+      user: User
+      article: Article
+    attributes:
+      user:
+        name: Ten nguoi dung
+        email: Email
+        password: Mat Khau
+      article:
+        title: Tieu de bai dang
+        body: Noi dung
+        status: Trang thai
