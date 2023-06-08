@@ -10,6 +10,9 @@ gem "sass-rails", ">= 6"
 gem "webpacker", "~> 5.0"
 gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.7"
+gem "bootstrap-sass"
+gem "pry-rails", :group => :development
+gem "rails-i18n"
 gem "bootsnap", ">= 1.4.4", require: false
 
 group :development, :test do
@@ -20,7 +23,6 @@ group :development do
   gem "web-console", ">= 4.1.0"
   gem "rack-mini-profiler", "~> 2.0"
   gem "listen", "~> 3.3"
-  gem "spring"
 end
 
 group :test do
@@ -30,3 +32,6 @@ group :test do
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "rubocop", "~> 1.26", require: false
+gem "rubocop-checkstyle_formatter", require: false
+gem "rubocop-rails", "~> 2.14.0", require: false

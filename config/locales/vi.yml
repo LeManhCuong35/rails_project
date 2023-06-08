@@ -1,0 +1,10 @@
+# config/locales/vi.yml
+vi:
+  articles:
+    index:
+      Articles: Dang cho duyet
+
+  welcome:
+    index:
+      welcome: Chao mung ban den voi binh nguyen vo tan
+      sign_up: Dang ky tai khoan
