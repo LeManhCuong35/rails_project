@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "color";
 
 .navbar {
   padding: 0px 20px;
@@ -19,7 +20,7 @@
   align-items: center;
   padding: 20px 0px;
   margin: 0px 100px;
-  background-color: #eaeaea;
+  background-color: $white;
   margin-bottom: 20px;
 }
 
@@ -36,7 +37,7 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
-  color: #000;
+  color: $black;
 }
 
 h2 {
@@ -45,7 +46,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: #777;
+  color: $black_7;
 }
 
 p {
@@ -58,7 +59,7 @@ p {
   float: left;
   font-size: 1.7em;
   padding: 10px;
-  color: #fff;
+  color: $white;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
@@ -66,7 +67,7 @@ p {
 }
 
 #logo:hover {
-  color: #fff;
+  color: $white;
   text-decoration: none;
 }
 
@@ -74,16 +75,16 @@ footer {
   padding: 0px 20px;
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: #777;
+  border-top: 1px solid $white;
+  color: $black_7;
 }
 
 footer a {
-  color: #555;
+  color: $black_5;
 }
 
 footer a:hover {
-  color: #222;
+  color: $black_2;
 }
 
 footer small {
