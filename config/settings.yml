@@ -1,0 +1,3 @@
+enabled_locales: ["en", "vi"]
+welcome:
+  image: "https://carousell.sg"

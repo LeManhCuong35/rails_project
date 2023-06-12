@@ -31,3 +31,50 @@
 
 en:
   hello: "Hello world"
+
+  welcome:
+    index:
+      welcome: Welcome to Ruby on Rails Tutorial
+      sign_up: Sign Up
+      rails: Ruby on Rails Tutorial
+      author: Kevin Hart
+      slogan: This is the homepage for the
+      title: Sample App
+
+  static_pages:
+    about:
+      find_me: Find me in
+      title: This is About Us Page
+    home:
+      title: This is Home Page
+
+  layouts:
+    header:
+      home: Home
+      about: About Us
+      log_in: Log In
+    footer:
+      news: News
+
+  users:
+    new:
+      user: New User
+    edit:
+     show: Show
+     edit: Edit
+     destroy: Destroy
+     add: Add New
+
+  activerecord:
+    models:
+      user: User
+      article: Article
+    attributes:
+      user:
+        name: Name
+        email: Email
+        password: Password
+      article:
+        title: Title
+        body: Body
+        status: Status

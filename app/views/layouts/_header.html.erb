@@ -1,0 +1,24 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+   <div>
+      <%= link_to "sample app", "/", id: "logo" %>
+      <nav>
+         <ul class="nav navbar-nav navbar-right">
+            <li>
+               <%= link_to "/static_pages/home" do %>
+                  <%= t ".home" %>
+               <% end %>
+            </li>
+            <li>
+               <%= link_to "/static_pages/about" do %>
+                  <%= t ".about" %>
+               <% end %>
+            </li>
+            <li>
+               <%= link_to new_user_path do %>
+                  <%= t ".log_in" %>
+               <% end %>
+            </li>
+         </ul>
+      </nav>
+   </div>
+</header>
