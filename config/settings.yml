@@ -1,3 +1,7 @@
 enabled_locales: ["en", "vi"]
 welcome:
   image: "https://carousell.sg"
+
+user:
+  min: 6
+  regex_email: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
