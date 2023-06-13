@@ -31,11 +31,19 @@ vi:
   users:
     new:
       user: Dang ky nguoi dung moi
+      success: Chao mung ban den voi binh nguyen vo tan
+      failed: Dang ky khong thanh cong
+      error: Error
+      account: Tai khoan
+      log_out: Dang xuat
+      settings: Cai dat
     edit:
-     show: Xem chi tiet
-     edit: Cap nhat thong tin
-     destroy: Xoa
-     add: Them moi
+      show: Xem chi tiet
+      edit: Cap nhat thong tin
+      destroy: Xoa
+      add: Them moi
+      success: Cap nhat thanh cong
+      failed: Cap nhat khong thanh cong
 
   activerecord:
     models:

@@ -59,11 +59,19 @@ en:
   users:
     new:
       user: New User
+      success: Create successfully
+      failed: Create failed
+      error: Error
+      account: Account
+      log_out: Log out
+      settings: Settings
     edit:
-     show: Show
-     edit: Edit
-     destroy: Destroy
-     add: Add New
+      show: Show
+      edit: Edit
+      destroy: Destroy
+      add: Add New
+      success: Update successfully
+      failed: Update Failure
 
   activerecord:
     models:

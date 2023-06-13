@@ -18,9 +18,10 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        flash[:success] = t "users.new.success"
         format.html do
-          redirect_to user_url(@user),
-                      notice: "User was successfully created."
+          redirect_to user_url @user,
+                      notice: t("users.new.success")
         end
         format.json{render :show, status: :created, location: @user}
       else
@@ -34,8 +35,9 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update user_params
         format.html do
-          redirect_to user_url(@user),
-                      notice: "User was successfully updated."
+          flash[:success] = t "user.edit.success"
+          redirect_to user_url @user,
+                      notice: t("user.edit.success")
         end
         format.json{render :show, status: :ok, location: @user}
       else

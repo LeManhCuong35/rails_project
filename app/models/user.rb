@@ -3,9 +3,9 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true,
-    format: {with: ->{Settings.user.regex_email}}
+    format: {with: Regexp.new(Settings.user.regex_email)}
   validates :password, presence: true,
-    length: {minimum: ->{Settings.user.min}}, if: :password
+    length: {minimum: Settings.user.min_6}, if: :password
 
   has_many :articles, dependent: :destroy
 
