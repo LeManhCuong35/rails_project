@@ -31,11 +31,16 @@ vi:
   users:
     new:
       user: Dang ky nguoi dung moi
+      success: Chao mung ban den voi binh nguyen vo tan
+      failed: Dang ky khong thanh cong
+      error: Error
     edit:
-     show: Xem chi tiet
-     edit: Cap nhat thong tin
-     destroy: Xoa
-     add: Them moi
+      show: Xem chi tiet
+      edit: Cap nhat thong tin
+      destroy: Xoa
+      add: Them moi
+      success: Cap nhat thanh cong
+      failed: Cap nhat khong thanh cong
 
   activerecord:
     models:
