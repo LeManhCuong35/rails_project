@@ -1,9 +1,11 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i(show edit update destroy)
+  before_action :logged_in_user, only: %i(create destroy)
+  before_action :load_article, except: %i(index new create)
+  before_action :correct_user, only: :destroy
 
   def index
     user = User.first
-    @articles = user.articles
+    @pagy, @articles = pagy user.articles
   end
 
   def show; end
@@ -15,21 +17,15 @@ class ArticlesController < ApplicationController
   def edit; end
 
   def create
-    @article = Article.new article_params
-
-    respond_to do |format|
-      if @article.save
-        format.html do
-          redirect_to article_url(@article),
-                      notice: "Article was successfully created."
-        end
-        format.json{render :show, status: :created, location: @article}
-      else
-        format.html{render :new, status: :unprocessable_entity}
-        format.json do
-          render json: @article.errors, status: :unprocessable_entity
-        end
-      end
+    params[:article][:status] = :pending
+    @article = current_user.articles.build(article_params)
+    @article.image.attach params.dig(:article, :image)
+    if @article.save
+      flash[:success] = t "articles.new.success"
+      redirect_to root_path
+    else
+      @pagy, @feed_items = pagy current_user.feed
+      render "welcome/index"
     end
   end
 
@@ -37,10 +33,8 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       if @article.update article_params
         format.html do
-          redirect_to article_url(@article),
-                      notice: "Article was successfully updated."
+          redirect_to article_path @article
         end
-        format.json{render :show, status: :ok, location: @article}
       else
         format.html{render :edit, status: :unprocessable_entity}
         format.json do
@@ -51,23 +45,33 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article.destroy
-
-    respond_to do |format|
-      format.html do
-        redirect_to articles_url,
-                    notice: "Article was successfully destroyed."
-      end
-      format.json{head :no_content}
+    if @article.destroy
+      flash[:success] = t "articles.delete.success"
+      redirect_to request.referer || root_url
+    else
+      flash[:error] = t "articles.delete.failed"
+      redirect_to root_path
     end
   end
 
   private
-  def set_article
-    @article = Article.find params[:id]
+  def load_article
+    @article = Article.find_by id: params[:id]
+    return if @article
+
+    flash[:danger] = t "articles.new.not_found"
+    redirect_to root_path
   end
 
   def article_params
-    params.require(:article).permit :title, :body, :status, :user_id
+    params.require(:article).permit :title, :body, :status, :image
+  end
+
+  def correct_user
+    @article = current_user.articles.find_by id: params[:id]
+    return if @article
+
+    flash[:danger] = t "articles.new.not_found"
+    redirect_to root_path
   end
 end

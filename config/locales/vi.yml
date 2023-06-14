@@ -28,6 +28,19 @@ vi:
     footer:
       news: Tin tuc
 
+  articles:
+    new:
+      success: Tao moi thanh cong
+      articles: Danh sach bai viet
+      article: bai viet
+      title: Tieu de
+      body: Noi dung
+      alert: Chon file co dung luong nho hon 5MB
+      not_found: Khong tim thay bai viet nao
+      failed: Khong thanh cong
+    delete:
+      success: Xoa thanh cong
+
   users:
     new:
       user: Dang ky nguoi dung moi
@@ -43,6 +56,7 @@ vi:
       all: Danh sach nguoi dung
       must_be_admin: Chi admin moi co quyen thuc hien
       say_hello: Xin chao
+      ago: truoc.
     edit:
       show: Xem chi tiet
       edit: Cap nhat thong tin
@@ -68,6 +82,7 @@ vi:
       mail_title: Kich hoat tai khoan Sample App
       mail_reset_password: Doi Mat Khau
       link_expired: Duong dan se het han sau 2 gio.
+      view_profile: Thong tin ca nhan
 
   activerecord:
     models:

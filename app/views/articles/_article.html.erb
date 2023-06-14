@@ -1,0 +1,19 @@
+<li id="article-<%= article.id %>">
+  <%= link_to gravatar_for article.user %>
+  <span class="user">
+    <%= link_to article.user.name, article.user %>
+  </span>
+  <span class="content">
+    <%= article.body %>
+  </span>
+
+  <%= image_tag article.display_image if article.image.attached? %>
+  <span class="timestamp">
+      <%= time_ago_in_words(article.created_at) %>
+      <%= t "users.new.ago" %>
+      <% if current_user == article.user %>
+        <%= link_to t("users.new.delete"), article, method: :delete,
+                                        data: { confirm: t("users.new.confirm") } %>
+      <% end %>
+  </span>
+</li>

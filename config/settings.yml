@@ -7,3 +7,10 @@ user:
   regex_email: \A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z
   gravatar_url: "https://secure.gravatar.com/avatar/"
   expired_2: 2
+
+articles:
+  max_body_140: 140
+  image_type: image/jpeg,image/gif,image/png
+  source_url: "http://www.w3.org"
+  image_max_5: 5
+  image_200: 200

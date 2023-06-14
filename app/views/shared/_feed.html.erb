@@ -1,0 +1,10 @@
+<% if @feed_items.any? %>
+  <ol class="articles">
+    <%= render @feed_items %>
+  </ol>
+  <%== pagy_bootstrap_nav @pagy %>
+<% else %>
+  <h3>
+    <%= t "articles.new.not_found" %>
+  </h3>
+<% end %>

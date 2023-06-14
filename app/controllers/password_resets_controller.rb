@@ -1,10 +1,11 @@
 class PasswordResetsController < ApplicationController
-  before_action :load_user, :valid_user, :check_expiration, only: %i(edit update)
+  before_action :load_user, :valid_user, :check_expiration,
+                only: %i(edit update)
 
   def new; end
 
   def create
-    @user = User.find_by(email: params.dig(:password_reset, :email).downcase)
+    @user = User.find_by email: params.dig(:password_reset, :email).downcase
     if @user
       @user.create_reset_digest
       @user.send_password_reset_email
@@ -33,7 +34,7 @@ class PasswordResetsController < ApplicationController
 
   private
   def load_user
-    @user = User.find_by(email: params[:email])
+    @user = User.find_by email: params[:email]
     return if @user
 
     flash[:danger] = t "users.new.failed"
@@ -41,9 +42,10 @@ class PasswordResetsController < ApplicationController
   end
 
   def valid_user
-    unless @user.activated? && @user.authenticated?(:reset, params[:id])
-      redirect_to root_url
-    end
+    return if @user.activated? && @user.authenticated?(:reset, params[:id])
+
+    flash[:danger] = t "users.edit.check_email"
+    redirect_to root_url
   end
 
   def check_expiration
