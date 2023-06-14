@@ -57,7 +57,17 @@ vi:
       active: Da Kich Hoat
       mail_text: "Chao mung ban den voi binh nguyen vo tan.
                   Click vao link duoi day de kich hoat tai khoan"
-      mail_title: Kich Hoat Tai Khoan Sample App
+      email_reset_password: Da gui toi email huong dan thay doi mat khau
+      no_email: Email chua dang ky tai khoan
+      not_empty: Khong duoc de trong
+      password_expire: Mat khau da khong con hieu luc
+      confirm_password: Xac nhan mat khau
+      update_password: Cap nhat mat khau
+      forgot_password: Quen mat khau
+      submit_form: Gui
+      mail_title: Kich hoat tai khoan Sample App
+      mail_reset_password: Doi Mat Khau
+      link_expired: Duong dan se het han sau 2 gio.
 
   activerecord:
     models:

@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 2023_06_19_031325) do
     t.string "activation_digest"
     t.boolean "activated"
     t.datetime "activated_at"
+    t.string "reset_digest"
+    t.datetime "reset_sent_at"
     t.string "remember_digest"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
