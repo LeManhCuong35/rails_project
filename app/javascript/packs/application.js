@@ -9,3 +9,6 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
+import $ from 'jquery';
+window.jQuery = $;
+window.$ = $;

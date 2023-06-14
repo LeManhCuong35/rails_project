@@ -18,7 +18,9 @@ length: {maximum: Settings.articles.max_body_140}
   has_one_attached :image
 
   def display_image
-    image.variant resize_to_limit: [Settings.articles.image_200,
-Settings.articles.image_200]
+    image.variant resize_to_limit: [
+                                    Settings.articles.image_200,
+                                    Settings.articles.image_200
+                                  ]
   end
 end

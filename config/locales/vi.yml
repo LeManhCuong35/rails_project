@@ -44,8 +44,8 @@ vi:
   users:
     new:
       user: Dang ky nguoi dung moi
-      success: Chao mung ban den voi binh nguyen vo tan
-      failed: Dang ky khong thanh cong
+      success: Thanh cong
+      failed: Khong thanh cong
       error: Error
       account: Tai khoan
       log_out: Dang xuat
@@ -57,6 +57,10 @@ vi:
       must_be_admin: Chi admin moi co quyen thuc hien
       say_hello: Xin chao
       ago: truoc.
+      follow: Theo doi
+      unfollow: Bo theo doi
+      following: Dang theo doi
+      follower: Theo doi ban
     edit:
       show: Xem chi tiet
       edit: Cap nhat thong tin
@@ -83,6 +87,7 @@ vi:
       mail_reset_password: Doi Mat Khau
       link_expired: Duong dan se het han sau 2 gio.
       view_profile: Thong tin ca nhan
+      deleted: Xoa thanh cong
 
   activerecord:
     models:

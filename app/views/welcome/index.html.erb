@@ -5,6 +5,9 @@
         <section class="user_info">
           <%= render "shared/user_info" %>
         </section>
+        <section class="stats">
+          <%= render "shared/stats" %>
+        </section>
         <section class="article_form">
           <%= render "shared/article_form" %>
         </section>
@@ -24,7 +27,7 @@
       <%= t "welcome.index.slogan" %>
       <%= link_to Settings.articles.source_url do %>
         <%= t "welcome.index.rails" %>
-      <% end %> .
+      <% end %>
     </h2>
     <%= link_to new_user_path, class: "btn btn-lg btn-primary" do %>
       <%= t "welcome.index.sign_up" %>

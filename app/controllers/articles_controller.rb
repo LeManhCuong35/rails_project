@@ -17,13 +17,14 @@ class ArticlesController < ApplicationController
   def edit; end
 
   def create
-    params[:article][:status] = :pending
+    params.dig(:article, :status) = :pending
     @article = current_user.articles.build(article_params)
-    @article.image.attach params.dig(:article, :image)
+    @article.image.attach(params.dig(:article, :image))
     if @article.save
-      flash[:success] = t "articles.new.success"
+      flash[:success] = t "users.new.success"
       redirect_to root_path
     else
+      flash.now[:danger] = t "users.new.failed"
       @pagy, @feed_items = pagy current_user.feed
       render "welcome/index"
     end
