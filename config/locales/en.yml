@@ -66,6 +66,10 @@ en:
       log_out: Log out
       settings: Settings
       remember_me: Remember Me
+      delete: Delete
+      confirm: Are you confirm
+      all: All Users
+      must_be_admin: Just admin can do this action
     edit:
       show: Show
       edit: Edit
@@ -73,6 +77,7 @@ en:
       add: Add New
       success: Update successfully
       failed: Update Failure
+      title: Update your Profile
 
   activerecord:
     models:
