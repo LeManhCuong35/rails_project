@@ -36,7 +36,7 @@ class UsersController < ApplicationController
       if @user.update user_params
         format.html do
           flash[:success] = t "user.edit.success"
-          redirect_to user_url(@user),
+          redirect_to user_url @user,
                       notice: t("user.edit.success")
         end
         format.json{render :show, status: :ok, location: @user}

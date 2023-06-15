@@ -34,6 +34,9 @@ vi:
       success: Chao mung ban den voi binh nguyen vo tan
       failed: Dang ky khong thanh cong
       error: Error
+      account: Tai khoan
+      log_out: Dang xuat
+      settings: Cai dat
     edit:
       show: Xem chi tiet
       edit: Cap nhat thong tin

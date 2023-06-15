@@ -163,3 +163,15 @@ input, textarea, select, .uneditable-input {
 input {
   height: auto !important;
 }
+
+.dropdown-toggle{
+  color: $white;
+  cursor: pointer
+}
+.dropdown-toggle:hover{
+  color: $white;
+}
+.navbar-right{
+  display: flex;
+  align-items: center;
+}
