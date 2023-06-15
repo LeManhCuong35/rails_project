@@ -1,24 +1,38 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
-   <div>
-      <%= link_to "sample app", "/", id: "logo" %>
-      <nav>
-         <ul class="nav navbar-nav navbar-right">
-            <li>
-               <%= link_to "/static_pages/home" do %>
-                  <%= t ".home" %>
-               <% end %>
-            </li>
-            <li>
-               <%= link_to "/static_pages/about" do %>
-                  <%= t ".about" %>
-               <% end %>
-            </li>
-            <li>
-               <%= link_to new_user_path do %>
-                  <%= t ".log_in" %>
-               <% end %>
-            </li>
-         </ul>
-      </nav>
-   </div>
+  <div>
+    <%= link_to "sample app", "/", id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to "/static_pages/home" do %>
+            <%= t ".home" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "/static_pages/about" do %>
+            <%= t ".about" %>
+          <% end %>
+        </li>
+        <% if logged_in? %>
+          <li class="dropdown">
+            <div class="dropdown-toggle" data-toggle="dropdown">
+              <%= t "users.new.account" %> <b class="caret"></b>
+            </div>
+            <ul class="dropdown-menu">
+              <li><%= link_to t("users.new.account"), current_user %></li>
+              <li><%= link_to t("users.new.settings"), "#" %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to t("users.new.log_out"), logout_path, method: :delete %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to t(".log_in"), login_path %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
 </header>

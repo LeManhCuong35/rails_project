@@ -62,6 +62,10 @@ en:
       success: Create successfully
       failed: Create failed
       error: Error
+      account: Account
+      log_out: Log out
+      settings: Settings
+      remember_me: Remember Me
     edit:
       show: Show
       edit: Edit
