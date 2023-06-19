@@ -37,6 +37,7 @@ vi:
       account: Tai khoan
       log_out: Dang xuat
       settings: Cai dat
+      remember_me: Ghi nho dang nhap
     edit:
       show: Xem chi tiet
       edit: Cap nhat thong tin

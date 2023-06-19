@@ -6,3 +6,4 @@ user:
   min_6: 6
   regex_email: \A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z
   gravatar_url: "https://secure.gravatar.com/avatar/"
+  expired_2: 2
