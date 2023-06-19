@@ -15,6 +15,10 @@ module SessionsHelper
     end
   end
 
+  def current_user? user
+    user && user == current_user
+  end
+
   def remember user
     user.remember
     cookies.signed[:user_id] =
@@ -38,5 +42,13 @@ module SessionsHelper
   def forget user
     cookies.delete :user_id
     cookies.delete :remember_token
+  end
+
+  def logged_in_user
+    redirect_to login_path if current_user.blank?
+  end
+
+  def admin_role? user
+    current_user.admin? && current_user.id != user.id
   end
 end

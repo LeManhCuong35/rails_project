@@ -38,6 +38,10 @@ vi:
       log_out: Dang xuat
       settings: Cai dat
       remember_me: Ghi nho dang nhap
+      delete: Xoa
+      confirm: Xac nhan xoa
+      all: Danh sach nguoi dung
+      must_be_admin: Chi admin moi co quyen thuc hien
     edit:
       show: Xem chi tiet
       edit: Cap nhat thong tin
@@ -45,6 +49,7 @@ vi:
       add: Them moi
       success: Cap nhat thanh cong
       failed: Cap nhat khong thanh cong
+      title: Cap nhat thong tin ca nhan
 
   activerecord:
     models:
