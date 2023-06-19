@@ -21,7 +21,7 @@ class UsersController < ApplicationController
         flash[:success] = t "users.new.success"
         format.html do
           redirect_to user_url @user,
-                      notice: t("users.new.success")
+                               notice: t("users.new.success")
         end
         format.json{render :show, status: :created, location: @user}
       else
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
         format.html do
           flash[:success] = t "user.edit.success"
           redirect_to user_url @user,
-                      notice: t("user.edit.success")
+                               notice: t("user.edit.success")
         end
         format.json{render :show, status: :ok, location: @user}
       else
