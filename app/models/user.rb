@@ -67,6 +67,10 @@ class User < ApplicationRecord
     reset_sent_at < Settings.user.expired_2.hours.ago
   end
 
+  def feed
+    Article.load_by_id id
+  end
+
   private
 
   def downcase_email

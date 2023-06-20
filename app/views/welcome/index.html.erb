@@ -1,16 +1,33 @@
 <div class="content">
-  <h1>
-    <%= t".welcome" %>
-  </h1>
-  <h2>
-    <%= t ".slogan" %>
-    <%= link_to "http://www.w3.org" do %>
-      <%= t ".rails" %>
-    <% end %> .
-  </h2>
-   <%= link_to new_user_path, class: "btn btn-lg btn-primary" do %>
-    <%= t ".sign_up" %>
-   <% end %>
+  <% if logged_in? %>
+    <div class="row">
+      <aside class="col-md-4">
+        <section class="user_info">
+          <%= render "shared/user_info" %>
+        </section>
+        <section class="article_form">
+          <%= render "shared/article_form" %>
+        </section>
+      </aside>
+      <div class="col-md-8">
+        <h3>
+          <%= t "articles.new.articles" %>
+        </h3>
+        <%= render "shared/feed" %>
+      </div>
+    </div>
+  <% else %>
+    <h1>
+      <%= t "welcome.index.welcome" %>
+    </h1>
+    <h2>
+      <%= t "welcome.index.slogan" %>
+      <%= link_to Settings.articles.source_url do %>
+        <%= t "welcome.index.rails" %>
+      <% end %> .
+    </h2>
+    <%= link_to new_user_path, class: "btn btn-lg btn-primary" do %>
+      <%= t "welcome.index.sign_up" %>
+    <% end %>
+  <% end %>
 </div>
-<%= link_to image_tag("dlph.jpg", alt: "Rails logo", width: "200px", class:"image"),
-  Settings.welcome.image %>

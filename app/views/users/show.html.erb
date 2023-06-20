@@ -10,8 +10,21 @@
         </h1>
       </section>
     </aside>
+    <div class="col-md-8">
+      <% if @user.articles.any? %>
+        <h3>
+          <%= @user.articles.count %>
+          <%= t "articles.new.article" %>
+        </h3>
+        <ol class="articles">
+          <%= render @user.articles %>
+        </ol>
+        <%== pagy_bootstrap_nav @pagy %>
+      <% else %>
+        <h3>
+          <%= t "articles.new.not_found" %>
+        </h3>
+      <% end %>
+    </div>
   </div>
 </div>
-<%= link_to edit_user_path @user do %>
-  <%= t "users.edit.edit" %>
-<% end %> |
