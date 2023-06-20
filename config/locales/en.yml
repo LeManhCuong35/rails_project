@@ -70,6 +70,7 @@ en:
       confirm: Are you confirm
       all: All Users
       must_be_admin: Just admin can do this action
+      say_hello: Hello
     edit:
       show: Show
       edit: Edit
@@ -78,6 +79,13 @@ en:
       success: Update successfully
       failed: Update Failure
       title: Update your Profile
+      account_activated: Account Activated
+      invalid_activation_link: Invalid Activation Link
+      check_email: Check Your Email
+      active: Active
+      mail_text: " Welcome to the Sample App!
+                Click on the link below to activate your account: "
+      mail_title: Activation Mail
 
   activerecord:
     models:

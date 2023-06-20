@@ -39,7 +39,7 @@ module SessionsHelper
     @current_user = nil
   end
 
-  def forget user
+  def forget _user
     cookies.delete :user_id
     cookies.delete :remember_token
   end

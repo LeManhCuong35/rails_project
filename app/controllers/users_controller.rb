@@ -18,18 +18,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
-
-    respond_to do |format|
-      if @user.save
-        flash[:success] = t "users.new.success"
-        format.html do
-          redirect_to user_url @user
-        end
-        format.json{render :show, status: :created, location: @user}
-      else
-        format.html{render :new, status: :unprocessable_entity}
-        format.json{render json: @user.errors, status: :unprocessable_entity}
-      end
+    if @user.save
+      @user.send_activation_email
+      flash[:info] = t "users.edit.mail_text"
+      redirect_to root_url
+    else
+      flash.now[:danger] = t "users.new.failed"
+      render :new
     end
   end
 
@@ -70,10 +65,10 @@ class UsersController < ApplicationController
   end
 
   def admin_user
-    unless current_user.admin?
-      flash[:danger] = t "users.new.must_be_admin"
-      redirect_to root_url
-    end
+    return if current_user.admin?
+
+    flash[:danger] = t "users.new.must_be_admin"
+    redirect_to root_url
   end
 
   def correct_user

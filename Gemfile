@@ -9,8 +9,11 @@ gem "bootstrap-sass"
 gem "bootstrap-will_paginate"
 gem "config"
 gem "faker"
+gem "figaro"
 gem "jbuilder", "~> 2.7"
+gem "mail"
 gem "mysql2", "~> 0.5"
+gem "pagy"
 gem "pry-rails", group: :development
 gem "puma", "~> 5.0"
 gem "rails", "~> 6.1.7", ">= 6.1.7.3"
@@ -18,7 +21,6 @@ gem "rails-i18n"
 gem "sass-rails", ">= 6"
 gem "turbolinks", "~> 5"
 gem "webpacker", "~> 5.0"
-gem "pagy"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

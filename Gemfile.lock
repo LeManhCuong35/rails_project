@@ -130,6 +130,8 @@ GEM
     faker (3.2.0)
       i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
+    figaro (1.2.0)
+      thor (>= 0.14.0, < 2)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.14.1)
@@ -312,8 +314,10 @@ DEPENDENCIES
   capybara (>= 3.26)
   config
   faker
+  figaro
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  mail
   mysql2 (~> 0.5)
   pagy
   pry-rails
@@ -331,6 +335,7 @@ DEPENDENCIES
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)
+  will_paginate (= 3.3.0)
 
 RUBY VERSION
    ruby 3.0.2p107
