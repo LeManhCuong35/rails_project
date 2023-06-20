@@ -17,7 +17,7 @@ class AccountActivationsController < ApplicationController
   def load_user
     @user = User.find_by email: params[:email]
     return if @user
-    
+
     flash[:danger] = t "users.new.failed"
     redirect_to root_path
   end
