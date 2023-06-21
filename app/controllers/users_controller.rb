@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: %i(edit update index)
-  before_action :set_user, only: %i(show edit update destroy)
+  before_action :logged_in_user, except: %i(show new create)
+  before_action :load_user, only: %i(show edit update destroy)
   before_action :admin_user, only: :destroy
   before_action :correct_user, only: %i(edit update)
 
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     if @user.save
       @user.send_activation_email
       flash[:info] = t "users.edit.mail_text"
-      redirect_to root_url
+      redirect_to root_path
     else
       flash.now[:danger] = t "users.new.failed"
       render :new
@@ -56,9 +56,27 @@ class UsersController < ApplicationController
     end
   end
 
+  def following
+    @title = t "users.new.following"
+    @user = User.load_by_id(params[:id]).first
+    @pagy, @users = pagy @user.following
+    render :show_follow
+  end
+
+  def followers
+    @title = t "users.new.follower"
+    @user = User.load_by_id(params[:id]).first
+    @pagy, @users = pagy @user.followers
+    render :show_follow
+  end
+
   private
-  def set_user
-    @user = User.find params[:id]
+  def load_user
+    @user = User.load_by_id(params[:id]).first
+    return if @user
+
+    flash[:danger] = t "articles.new.not_found"
+    redirect_to login_path
   end
 
   def user_params
@@ -74,6 +92,9 @@ class UsersController < ApplicationController
   end
 
   def correct_user
-    redirect_to(root_url) unless current_user? @user
+    retun if current_user? @user
+
+    flash[:danger] = t "articles.new.not_found"
+    redirect_to root_path
   end
 end

@@ -11,8 +11,17 @@ class User < ApplicationRecord
     length: {minimum: Settings.user.min_6}, if: :password
 
   has_many :articles, dependent: :destroy
-
+  has_many :active_relationships, class_name: Relationship.name,
+                                  foreign_key: :follower_id,
+                                  dependent: :destroy
+  has_many :passive_relationships, class_name: Relationship.name,
+                                  foreign_key: :followed_id,
+                                  dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
+  has_many :followers, through: :passive_relationships, source: :follower
   has_secure_password
+
+  scope :load_by_id, ->(id){ where id: id }
 
   class << self
     def digest string
@@ -35,7 +44,7 @@ class User < ApplicationRecord
   end
 
   def forget
-    update_attribute :remember_digest, nil
+    update_column :remember_digest, nil
   end
 
   def authenticated? attribute, token
@@ -47,10 +56,6 @@ class User < ApplicationRecord
 
   def activate
     update_columns activated: true, activated_at: Time.zone.now
-  end
-
-  def send_activation_email
-    UserMailer.account_activation(self).deliver_now
   end
 
   def create_reset_digest
@@ -67,8 +72,25 @@ class User < ApplicationRecord
     reset_sent_at < Settings.user.expired_2.hours.ago
   end
 
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
+  end
+
   def feed
-    Article.load_by_id id
+    following_ids = following.ids << id
+    Article.where(user_id: following_ids)
+  end
+
+  def follow other_user
+    following << other_user
+  end
+
+  def unfollow other_user
+    following.delete other_user
+  end
+
+  def following? other_user
+    following.include? other_user
   end
 
   private

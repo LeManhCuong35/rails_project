@@ -54,6 +54,10 @@ en:
       must_be_admin: Just admin can do this action
       say_hello: Hello
       ago: ago.
+      follow: Follow
+      unfollow: Unfollow
+      following: Following
+      follower: Follower
     edit:
       show: Show
       edit: Edit
@@ -80,6 +84,7 @@ en:
       mail_reset_password: Reset Password
       link_expired: This link will expire in two hours.
       view_profile: View Profile
+      deleted: Delete Successfully
 
   activerecord:
     models:
